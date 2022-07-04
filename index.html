@@ -16,7 +16,7 @@
           <p class="text">Bill</p>
           <div class="input">
             <img src="./images/icon-dollar.svg" alt="" class="input__img">
-            <input type="text" class="input__input">
+            <input type="text" class="input__input" maxlength="10">
           </div>
         </div>
         <div class="btns-block">
@@ -24,17 +24,17 @@
           <div class="btns">
             <button class="btn">5%</button>
             <button class="btn">10%</button>
-            <button class="btn btn_green">15%</button>
+            <button class="btn">15%</button>
             <button class="btn">25%</button>
             <button class="btn">50%</button>
-            <button class="btn btn_clear">Custom</button>
+            <input type="text" class="btn btn_input" placeholder="Custom" maxlength="3" onclick="changeColor(this)"> 
           </div>
         </div>
         <div class="input-block">
           <p class="text">Number of People</p>
           <div class="input">
             <img src="./images/icon-person.svg" alt="" class="input__img">
-            <input type="text" class="input__input">
+            <input type="text" class="input__input" maxlength="3">
           </div>
         </div>
       </div>
@@ -55,7 +55,7 @@
             <p class="result-item__sum">$123</p>
           </div>
         </div>
-        <button class="btn btn_big">Reset</button>
+        <button class="btn btn_big">RESET</button>
       </div>
     </div>
   </div>

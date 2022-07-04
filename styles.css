@@ -1,4 +1,8 @@
 @import url(https://fonts.googleapis.com/css?family=Space+Mono:700&display=swap);
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
 
 body {
   width: 100vw;
@@ -40,7 +44,6 @@ body {
 
 .calc-form__left {
   width: 48%;
-  
 }
 
 .btns-block {
@@ -94,16 +97,12 @@ body {
   font-family: 'Space Mono', monospace;
   text-align: center;
   margin-bottom: 10px;
+  cursor: pointer;
 }
 
-.btn_green {
-  background-color: #26C2AD;
+.btn:hover:not(:last-child), .btn_big:hover {
+  background-color: #9FE7DF;
   color: #00474B;
-}
-
-.btn_clear {
-  color: #5A6869;
-  background-color: #F3F8FB;
 }
 
 .btn_big {
@@ -111,6 +110,13 @@ body {
   color: #00474B;
   width: 100%;
   margin: 0;
+}
+
+.btn_input {
+  background-color: #F3F8FB;
+  outline: none;
+  box-sizing: border-box;
+  color: #00474B;
 }
 
 .calc-form__right {
