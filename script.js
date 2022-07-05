@@ -109,10 +109,18 @@ function changeColor(elem) {
   elem.style.border = '2px solid #5CA99F'
 }
 
-// btnReset.addEventListener('click', function() {
-//   inputBill.value = ''
-//   inputTip.innerHTML = ''
-//   inputPeople.value = ''
-//   tipStr.innerHTML = `$0`
-//   totalStr.innerHTML = `$0`
-// })
+btnReset.addEventListener('click', function() {
+  inputBill.value = ''
+  inputTip.innerHTML = ''
+  inputPeople.value = ''
+  tipStr.innerHTML = `$0`
+  totalStr.innerHTML = `$0`
+  inputTip.value = `$0`
+
+  for (let i = 0; i < inputs.length; i++) {
+    inputs[i].style.border = 'none'
+    for (let j = 0; j < errorMessages.length; j++) {
+      errorMessages[j].style.display = 'none'
+    }
+  }
+})
