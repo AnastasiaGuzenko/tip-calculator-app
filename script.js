@@ -12,44 +12,69 @@ let bill;
 let tip;
 let people;
 
-
 function showResultCalc(bill = 8, tip = 15, people = 1) {
   let tipSum = (bill / 100 * tip)
   let resultTip =  (tipSum / people).toFixed(2)
   let resultTotal = ((Number(bill) + Number(tipSum)) / people).toFixed(2)
 
-  if (isNaN(resultTip) == true) {
+  if (isNaN(resultTip) === true || isFinite(resultTip) === false) {
     tipStr.innerHTML = `$0.00`
   } else {
     tipStr.innerHTML = `$${resultTip}`
   }
 
-  if (isNaN(resultTotal) == true) {
+  if (isNaN(resultTotal) === true || isFinite(resultTotal) === false) {
     totalStr.innerHTML = `$0.00`
   } else {
     totalStr.innerHTML = `$${resultTotal}`
+  }
+
+  errorChecking(bill, tip, people)
+}
+
+function errorChecking(bill, tip, people) {
+  let arrValue = [bill, tip, people]
+
+  for (let i = 0; i < arrValue.length; i++) {
+    if (arrValue[i] < 0 || isFinite(arrValue[i]) === false || isNaN(arrValue[i]) === true)  {
+      totalStr.innerHTML = `$0.00`
+      tipStr.innerHTML = `$0.00`
+    }
   }
 }
 
 showResultCalc(inputBill.value, btnTip, inputPeople.value)
 
+let errorMessages = document.querySelectorAll('.error')
+
 for (let i = 0; i < inputs.length; i++) {
   inputs[i].addEventListener('input', function() {
+    for (let j = 0; j < errorMessages.length; j++) {
+      if (parseInt(inputs[i].value) <= 0) {
+        if (i === 0) {
+          errorMessages[0].style.display = 'block'
+          inputs[0].style.border =  '2px solid #BE7C6E'
+        } else if (i === 2) {
+          errorMessages[1].style.display = 'block'
+          inputs[2].style.border =  '2px solid #BE7C6E'
+        } 
 
-    // if (inputs[i].value.length == 4) {
-    //   console.log('введите меньше символов')
-    // } 
-    // console.log(inputs[i].value.length)
-
-
+        if (inputs[1].value < 0) {
+          inputs[1].style.border =  '2px solid #BE7C6E'
+        }
+      } else {
+        inputs[i].style.border =  'none'
+        errorMessages[j].style.display = 'none'
+      }
+    } 
     bill = inputBill.value
     
-    if (inputTip.value == '') {
+    if (inputTip.value === '') {
       tip = btnTip
     } else {
       tip = inputTip.value
     }
-  
+
     people = inputPeople.value
     showResultCalc(bill, tip, people)
   })
@@ -57,7 +82,7 @@ for (let i = 0; i < inputs.length; i++) {
 
 function btnClick() {
   for (let i = 0; i < btns.length; i++) {
-    if (i == btnIndex) {
+    if (i === btnIndex) {
       btns[i].classList.add('btn_active')
       btnTip = parseInt((btns[i].innerHTML), 10)
     } else {

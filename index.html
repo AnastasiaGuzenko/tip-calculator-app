@@ -13,7 +13,10 @@
     <div class="calc-form">
       <div class="calc-form__left">
         <div class="input-block">
-          <p class="text">Bill</p>
+          <div class="input-block__text">
+            <p class="text">Bill</p>
+            <p class="text error">Can't be zero or negative number</p>
+          </div>
           <div class="input">
             <img src="./images/icon-dollar.svg" alt="" class="input__img">
             <input type="number" class="input__input bill" value="8" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength = "4">
@@ -31,7 +34,10 @@
           </div>
         </div>
         <div class="input-block">
-          <p class="text">Number of People</p>
+          <div class="input-block__text">
+            <p class="text">Number of People</p>
+            <p class="text error">Can't be zero or negative number</p>
+          </div>
           <div class="input">
             <img src="./images/icon-person.svg" alt="" class="input__img">
             <input type="number" class="input__input number-of-people" value="1" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength = "2">
