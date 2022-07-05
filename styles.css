@@ -119,6 +119,11 @@ body {
   color: #00474B;
 }
 
+.btn_active {
+  background-color: #26C2AD;
+  color: #00474B;
+}
+
 .calc-form__right {
   width: 48%;
   background-color: #00474B;
