@@ -12,19 +12,20 @@ let bill;
 let tip;
 let people;
 
+
 function showResultCalc(bill = 8, tip = 15, people = 1) {
   let tipSum = (bill / 100 * tip)
   let resultTip =  (tipSum / people).toFixed(2)
   let resultTotal = ((Number(bill) + Number(tipSum)) / people).toFixed(2)
 
   if (isNaN(resultTip) == true) {
-    tipStr.innerHTML = `$0`
+    tipStr.innerHTML = `$0.00`
   } else {
     tipStr.innerHTML = `$${resultTip}`
   }
 
   if (isNaN(resultTotal) == true) {
-    totalStr.innerHTML = `$0`
+    totalStr.innerHTML = `$0.00`
   } else {
     totalStr.innerHTML = `$${resultTotal}`
   }
@@ -33,7 +34,14 @@ function showResultCalc(bill = 8, tip = 15, people = 1) {
 showResultCalc(inputBill.value, btnTip, inputPeople.value)
 
 for (let i = 0; i < inputs.length; i++) {
-  inputs[i].addEventListener('blur', function() {
+  inputs[i].addEventListener('input', function() {
+
+    // if (inputs[i].value.length == 4) {
+    //   console.log('введите меньше символов')
+    // } 
+    // console.log(inputs[i].value.length)
+
+
     bill = inputBill.value
     
     if (inputTip.value == '') {
