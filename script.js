@@ -11,6 +11,7 @@ let inputs = document.querySelectorAll('input');
 let bill;
 let tip;
 let people;
+let errorMessages = document.querySelectorAll('.error');
 
 function showResultCalc(bill = 8, tip = 15, people = 1) {
   let tipSum = (bill / 100 * tip)
@@ -44,8 +45,6 @@ function errorChecking(bill, tip, people) {
 }
 
 showResultCalc(inputBill.value, btnTip, inputPeople.value)
-
-let errorMessages = document.querySelectorAll('.error')
 
 for (let i = 0; i < inputs.length; i++) {
   inputs[i].addEventListener('input', function() {
