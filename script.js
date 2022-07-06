@@ -18,13 +18,13 @@ function showResultCalc(bill = 8, tip = 15, people = 1) {
   let resultTip =  (tipSum / people).toFixed(2)
   let resultTotal = ((Number(bill) + Number(tipSum)) / people).toFixed(2)
 
-  if (isNaN(resultTip) === true || isFinite(resultTip) === false) {
+  if (isNaN(resultTip) || !isFinite(resultTip)) {
     tipStr.innerHTML = `$0.00`
   } else {
     tipStr.innerHTML = `$${resultTip}`
   }
 
-  if (isNaN(resultTotal) === true || isFinite(resultTotal) === false) {
+  if (isNaN(resultTotal) || !isFinite(resultTotal)) {
     totalStr.innerHTML = `$0.00`
   } else {
     totalStr.innerHTML = `$${resultTotal}`
@@ -37,7 +37,7 @@ function errorChecking(bill, tip, people) {
   let arrValue = [bill, tip, people]
 
   for (let i = 0; i < arrValue.length; i++) {
-    if (arrValue[i] < 0 || isFinite(arrValue[i]) === false || isNaN(arrValue[i]) === true)  {
+    if (arrValue[i] < 0 || !isFinite(arrValue[i]) || isNaN(arrValue[i])) {
       totalStr.innerHTML = `$0.00`
       tipStr.innerHTML = `$0.00`
     }
@@ -101,11 +101,6 @@ for (let i = 0; i < btns.length; i++) {
     }
     btnClick()
   })
-}
-
-function changeColor(elem) {
-  elem.style.backgroundColor = '#F3F8FB'
-  elem.style.border = '2px solid #5CA99F'
 }
 
 btnReset.addEventListener('click', function() {
